@@ -1,389 +1,292 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Dép CLOG Rabity Bé Gắn Kim Sa Vàng</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rabity Product Certification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-styles">
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #FFFFFF;
-      color: #111111;
-      min-height: 100vh;
-      padding-bottom: 92px;
-      -webkit-font-smoothing: antialiased;
+      background-color: #fcf8f2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
-    /* ─── HEADER ─── */
-    .header {
-      background: #1F67C4;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 200;
+    .cert-border {
+      border: 8px solid #1e3a8a; /* Tailwind blue-900 */
+      padding: 4px;
     }
-
-    .header-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .cert-inner-border {
+      border: 2px solid #fbbf24; /* Tailwind amber-400 */
+      padding: 20px;
+      position: relative;
     }
-
-    .header-logo-img {
-      height: 34px;
-      width: auto;
-      object-fit: contain;
+    .gold-seal {
+      background: radial-gradient(circle, #fcd34d 0%, #d97706 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
-    .header-support {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
-      letter-spacing: 0.3px;
-    }
-
-    /* ─── HERO ─── */
-    .hero {
-      background: #FFFFFF;
-      padding: 24px 20px 16px;
-      text-align: center;
-    }
-
-    .hero-img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      object-fit: contain;
-    }
-
-    /* ─── PRODUCT INFO ─── */
-    .product-info {
-      padding: 20px 20px 0;
-    }
-
-    .product-name {
-      font-size: 22px;
-      font-weight: 800;
-      color: #1F67C4;
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-
-    .product-price {
-      font-size: 36px;
-      font-weight: 900;
-      color: #FF8F00;
-      margin-bottom: 6px;
-      letter-spacing: -0.5px;
-    }
-
-    .product-sku {
-      font-size: 13px;
-      color: #999999;
-      font-weight: 500;
-      margin-bottom: 24px;
-    }
-
-    /* ─── SIZE SECTION ─── */
-    .size-section {
-      padding: 0 20px 20px;
-    }
-
-    .size-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
-
-    .size-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: #111111;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .size-guide-link {
-      font-size: 12px;
-      font-weight: 600;
-      color: #1F67C4;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    .size-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .size-btn {
-      min-width: 48px;
-      height: 48px;
-      padding: 0 8px;
-      border: 2px solid #E0E0E0;
-      border-radius: 10px;
-      background: #FFFFFF;
-      font-size: 14px;
-      font-weight: 700;
-      color: #333333;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .size-btn:hover {
-      border-color: #1F67C4;
-      color: #1F67C4;
-    }
-
-    .size-btn.selected {
-      border: 2.5px solid #FF8F00;
-      background: #FFF8EE;
-      color: #FF8F00;
-    }
-
-    /* ─── DIVIDER ─── */
-    .divider {
-      height: 1px;
-      background: #F0F0F0;
-      margin: 0 20px 20px;
-    }
-
-    /* ─── FEATURES ─── */
-    .features-section {
-      padding: 0 20px 32px;
-    }
-
-    .features-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: #111111;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 16px;
-    }
-
-    .features-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-    }
-
-    .features-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #444444;
-      line-height: 1.5;
-    }
-
-    .features-list li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 7px;
-      height: 7px;
-      background-color: #FF8F00;
-      border-radius: 50%;
-      margin-top: 6px;
-    }
-
-    /* ─── STICKY CTA ─── */
-    .sticky-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #FFFFFF;
-      padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
-      box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-    }
-
-    .cta-btn {
-      width: 100%;
-      background: #FF8F00;
-      color: #FFFFFF;
-      border: none;
-      border-radius: 14px;
-      padding: 17px 24px;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .cta-btn:active {
-      background: #D97700;
-      transform: scale(0.98);
-    }
-
-    /* ─── TOAST NOTIFICATION ─── */
-    .toast {
-      position: fixed;
-      top: 70px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-20px);
-      background: #333333;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s, transform 0.25s;
-      z-index: 300;
-      white-space: nowrap;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (min-width: 480px) {
-      .hero-img {
-        max-width: 440px;
-      }
+    .pass-badge {
+      border: 2px solid #15803d; /* Tailwind green-700 */
+      color: #15803d;
+      border-radius: 8px;
     }
   </style>
 </head>
-<body>
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-logo">
-      <img class="header-logo-img" src="source/logo.png" alt="Rabity Logo">
-    </div>
-    <span class="header-support">CHĂM SÓC KHÁCH HÀNG</span>
-  </header>
-
-  <!-- HERO IMAGE -->
-  <div class="hero">
-    <img
-      class="hero-img"
-      src="source/shoes.png"
-      alt="Dép clog Rabity bé gắn kim sa vàng"
-    >
-  </div>
-
-  <!-- PRODUCT INFO -->
-  <section class="product-info">
-    <h1 class="product-name">DÉP CLOG RABITY BÉ<br>GẮN KIM SA VÀNG</h1>
-    <div class="product-price">599K</div>
-    <div class="product-sku">Mã SP: RB-CLG-GOLD</div>
-  </section>
-
-  <!-- SIZE SELECTOR -->
-  <section class="size-section">
-    <div class="size-header">
-      <span class="size-title">Chọn size</span>
-      <span class="size-guide-link">Hướng dẫn chọn size</span>
-    </div>
-    <div class="size-grid" id="sizeGrid">
-      <button class="size-btn" data-size="23">23</button>
-      <button class="size-btn" data-size="24">24</button>
-      <button class="size-btn" data-size="25">25</button>
-      <button class="size-btn" data-size="26">26</button>
-      <button class="size-btn" data-size="27">27</button>
-      <button class="size-btn" data-size="28">28</button>
-      <button class="size-btn" data-size="29">29</button>
-      <button class="size-btn" data-size="30">30</button>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- FEATURES LIST -->
-  <section class="features-section">
-    <div class="features-title">Thông tin nổi bật</div>
-    <ul class="features-list">
-      <li>Chất liệu EVA an toàn, mềm nhẹ.</li>
-      <li>Không chứa BPA độc hại.</li>
-      <li>Mũi rộng thoải mái cho ngón chân bé.</li>
-      <li>Gắn kim sa vàng nổi bật.</li>
-      <li>Lòng dép nâng đỡ theo công thái học.</li>
-      <li>Đế giữa êm ái, hấp thụ lực.</li>
-      <li>Đế chống trượt, bám tốt.</li>
-      <li>Siêu nhẹ (nhẹ hơn 30%).</li>
-      <li>Dễ vệ sinh, mau khô.</li>
-      <li>Thân thiện cho đôi chân bé.</li>
-    </ul>
-  </section>
-
-  <!-- STICKY CTA -->
-  <div class="sticky-cta">
-    <button class="cta-btn" id="ctaBtn">THÊM VÀO GIỎ HÀNG</button>
-  </div>
-
-  <!-- TOAST -->
-  <div class="toast" id="toast"></div>
-
-  <script>
-    const sizeBtns = document.querySelectorAll('.size-btn');
-    const ctaBtn = document.getElementById('ctaBtn');
-    const toast = document.getElementById('toast');
-
-    let selectedSize = null;
-
-    sizeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        sizeBtns.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        selectedSize = btn.dataset.size;
-      });
-    });
-
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    }
-
-    ctaBtn.addEventListener('click', () => {
-      if (!selectedSize) {
-        showToast('Vui lòng chọn size trước khi đặt mua');
-        return;
-      }
-      ctaBtn.textContent = 'ĐANG THÊM...';
-      ctaBtn.style.background = '#E07A00';
-      setTimeout(() => {
-        ctaBtn.textContent = 'ĐÃ THÊM VÀO GIỎ!';
-        ctaBtn.style.background = '#2E9B3E';
-        showToast('Đã thêm size ' + selectedSize + ' vào giỏ hàng');
-        setTimeout(() => {
-          ctaBtn.textContent = 'THÊM VÀO GIỎ HÀNG';
-          ctaBtn.style.background = '#FF8F00';
-        }, 2500);
-      }, 700);
-    });
-
-    document.querySelector('.size-guide-link').addEventListener('click', () => {
-      showToast('Đang mở hướng dẫn chọn size...');
-    });
-  </script>
-
-</body>
-</html>
+<body class="p-8">
+<!-- BEGIN: Main Container -->
+<div class="max-w-6xl mx-auto flex flex-col gap-8">
+<!-- BEGIN: Top Section (Certificate & Product) -->
+<div class="flex flex-col lg:flex-row gap-6">
+<!-- BEGIN: Certificate Area -->
+<div class="lg:w-7/12 bg-white cert-border shadow-md">
+<div class="cert-inner-border h-full flex flex-col items-center justify-between text-center">
+<!-- Gold Seal -->
+<div class="absolute left-4 top-1/4 transform -translate-y-1/2 flex flex-col items-center">
+<div class="w-24 h-24 rounded-full gold-seal flex items-center justify-center border-4 border-yellow-200">
+<svg class="w-10 h-10 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</div>
+<div class="flex gap-1 mt-1">
+<div class="w-4 h-8 bg-yellow-500 transform -skew-y-12"></div>
+<div class="w-4 h-8 bg-yellow-500 transform skew-y-12"></div>
+</div>
+</div>
+<!-- Header -->
+<div class="mb-4">
+<div class="flex justify-center items-center gap-2 mb-2">
+<svg class="w-8 h-8 text-orange-500" fill="currentColor" viewbox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L5 8.09v7.82l7 3.94 7-3.94V8.09l-7-3.94z"></path></svg>
+<h1 class="text-2xl font-bold text-orange-500 tracking-wider">Rabity</h1>
+</div>
+<h2 class="text-2xl font-bold text-blue-900 mb-1">GIẤY CHỨNG NHẬN CHẤT LƯỢNG</h2>
+<p class="text-xs text-gray-500 tracking-widest uppercase">CERTIFICATE OF QUALITY</p>
+</div>
+<!-- Product Info -->
+<div class="mb-6 space-y-1">
+<p class="font-bold text-gray-800">SẢN PHẨM: DÉP EVA RABITY</p>
+<p class="text-sm text-gray-600">Mã sản phẩm: RB-CLG-01</p>
+<p class="text-xs text-gray-500 mt-2 max-w-sm mx-auto">Đã được kiểm định bởi Trung tâm Kiểm định Chất lượng<br/>Theo các tiêu chuẩn an toàn và chất lượng hiện hành</p>
+</div>
+<!-- Pass Status -->
+<div class="pass-badge px-8 py-3 flex items-center justify-center gap-3 mb-6 bg-green-50">
+<span class="text-3xl font-extrabold tracking-widest">ĐẠT / PASS</span>
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<!-- Footer Details -->
+<div class="flex justify-between items-end w-full px-4 mt-auto">
+<div class="flex items-center gap-2 text-left">
+<img alt="QR Code" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4qZcNIOylbuv4pD60pK2zoe5zpcFeggyTJHabzQLjMCijRLRDFA4CNyhLiKDFBUY4oBRM-Bdc96t5z4V5-1GlsWE-Wf-Y3dOtl2PB3j-LA7YGCfobDEPu4a8cEjioAmECY5fmwG0MURQGlYLNQpPPaYBDum5_-o9leIbniE1xG92LegIHy199AnD3HGi5_3Ap9PHajPpsJE8n9oPBk8HVZgiueGH4SF_zBOwaIWA8QU5Xbjq-GQcY5lCW3CXVPCxApenNa1YkeRo"/>
+<div class="text-[10px] text-gray-500 leading-tight">
+<p>Số chứng nhận: RAB-QC-2405-0033</p>
+<p>Ngày cấp: 15/05/2024</p>
+<p>Hiệu lực đến: 24/05/2026</p>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<p class="text-[10px] font-bold text-blue-900 mb-1">TRUNG TÂM KIỂM ĐỊNH CHẤT LƯỢNG</p>
+<p class="text-[8px] text-gray-500 uppercase mb-2">QUALITY ASSURANCE CENTER</p>
+<div class="w-16 h-16 rounded-full border border-red-500 flex items-center justify-center rotate-[-15deg] opacity-70">
+<div class="text-center text-red-500 text-[8px] font-bold leading-tight">
+<p>APPROVED</p>
+<p>QC</p>
+<p>RABITY</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END: Certificate Area -->
+<!-- BEGIN: Product Showcase -->
+<div class="lg:w-5/12 flex flex-col gap-4">
+<!-- Cert Logos -->
+<div class="grid grid-cols-4 gap-2">
+<!-- Logo 1 -->
+<div class="bg-white border border-gray-200 rounded-lg p-2 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="text-green-600 font-bold text-2xl mb-1">Q</div>
+<div class="text-[10px] font-bold text-blue-900 leading-tight">QUATEST 3<br/><span class="font-normal text-[8px] text-gray-500">Kiểm định chất lượng</span></div>
+<div class="text-green-600 font-bold text-sm mt-1">ĐẠT<br/>PASS</div>
+</div>
+<!-- Logo 2 -->
+<div class="bg-white border border-gray-200 rounded-lg p-2 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="font-bold text-xl text-gray-800 mb-1 tracking-widest">SGS</div>
+<div class="text-[10px] text-gray-500 leading-tight">Kiểm tra an toàn<br/>hóa chất</div>
+<div class="text-green-600 font-bold text-sm mt-1">ĐẠT<br/>PASS</div>
+</div>
+<!-- Logo 3 -->
+<div class="bg-white border border-gray-200 rounded-lg p-2 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="bg-blue-900 text-white font-bold text-xs px-2 py-1 rounded mb-1">Intertek</div>
+<div class="text-[10px] text-gray-500 leading-tight">Kiểm tra độ bền lý<br/>hóa tiêu dùng</div>
+<div class="text-green-600 font-bold text-sm mt-1">ĐẠT<br/>PASS</div>
+</div>
+<!-- Logo 4 -->
+<div class="bg-white border border-gray-200 rounded-lg p-2 flex flex-col items-center justify-center text-center shadow-sm relative overflow-hidden">
+<div class="text-blue-600 font-bold text-[10px] mb-1">ilac-MRA</div>
+<div class="text-[8px] text-gray-500 leading-tight">Đáp ứng tiêu chuẩn<br/>quốc tế</div>
+<div class="text-green-600 font-bold text-sm mt-1">ĐẠT<br/>PASS</div>
+</div>
+</div>
+<!-- Testing Badge -->
+<div class="bg-white border border-gray-200 rounded-full py-2 px-4 flex items-center justify-center gap-2 shadow-sm w-max">
+<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-xs font-medium text-gray-700">Kiểm định chất liệu, độ bám đế<br/>và độ bền cơ học</span>
+</div>
+<!-- Product Image -->
+<div class="flex-grow flex items-center justify-center -mt-4 relative">
+<!-- We use the provided image URL here -->
+<img alt="Rabity Clogs" class="w-full h-auto object-cover absolute inset-0 opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc6CFGLzE1-EfrGssxaAieE49WoELRlhTd_QIjT-4ovxwhzRnpmlHd-cpBotda13qbkeJzfxS-hmsg6WguTHtuL07C8WtRjknqVF93I6ZYlwEXNowqefWmIDsYjy1mbAkJx0DcfWBJr6CtjmcbLAs5Nro-8GJKewhSV4fNsGhOTrddpzjFmtjLx4bdNWrOc2s1kQN4dzInRr_zaBmiiLCBwPdGO-yf1uJB-8vBq31Y6o-hTAC7MZ1OnxzzBcQAbH8C-xz7RG4ya2w"/>
+<div class="w-full max-w-[400px]">
+<img alt="Beige Clogs with Blue Straps" class="w-full drop-shadow-xl transform hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVe71OVHzlo5Sh1ZlRAEx8unvJaA_gZbvkNkQEmxnreJdFuD7pbCzetlI-b45fyHGvOpKAFoVUHXQQRhIFJpyX09JgLOd_C1Lhmm3CkNE5rxab2vSw8rnDgjpDi2k0HwnY9rezjcp_f1FTqqrz55DPcK4Wrg_ZxKdw9zP3rHWn752GFq0JvPcz3yxDbLd6dpM93OjjLP1ModlE66UaIBVonB9q_yI1tMFA2xq_r1_wSLV3XtUiJ0Th5tL1E0NtiP8jU9NydNbs37Y"/>
+</div>
+</div>
+</div>
+<!-- END: Product Showcase -->
+</div>
+<!-- END: Top Section -->
+<!-- BEGIN: Features Grid -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-y-6 gap-x-4 px-4 border-t border-b border-gray-200 py-6 bg-white/50 rounded-xl">
+<!-- Feature 1 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Chất liệu EVA<br/>an toàn</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Mềm nhẹ, không gây<br/>kích ứng cho da bé</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0 text-xs font-bold text-center leading-tight">
+          BPA<br/>FREE
+        </div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Không BPA</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">An toàn cho bé,<br/>không chứa chất<br/>độc hại</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Mũi rộng<br/>thoải mái</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Cho ngón chân<br/>phát triển tự nhiên</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Quai hậu<br/>chắc chắn</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Giữ dép cố định,<br/>êm ái khi vận động</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 5 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Lòng dép<br/>nâng đỡ</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Thiết kế công thái học,<br/>giảm mỏi khi đi lâu</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 6 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Đế giữa<br/>êm ái</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Hấp thụ lực, nâng<br/>niu từng bước chân</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 7 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Đế chống<br/>trượt</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Bám tốt trên nhiều<br/>bề mặt ướt hoặc khô</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 8 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Siêu nhẹ</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Nhẹ hơn 30%*,<br/>bé đi như không</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 9 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Dễ vệ sinh</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Rửa nhanh,<br/>khô nhanh</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<!-- Feature 10 -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full border-2 border-blue-900 flex items-center justify-center text-blue-900 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-sm font-bold text-blue-900">Thân thiện<br/>cho bé</h3>
+<p class="text-[10px] text-gray-500 leading-tight mt-1">Thiết kế dành riêng<br/>cho đôi chân bé</p>
+</div>
+<div class="absolute -bottom-1 left-7 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center text-white border-2 border-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+</div>
+<!-- END: Features Grid -->
+<!-- BEGIN: Bottom Bar -->
+<div class="flex justify-center mt-2">
+<div class="border border-blue-900 rounded-full flex items-center overflow-hidden bg-white max-w-2xl w-full">
+<div class="bg-blue-900 text-white p-3 px-6 flex items-center gap-2">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex-grow flex items-center justify-center py-2 px-6 gap-4">
+<span class="text-blue-900 font-medium">Giá tham khảo:</span>
+<span class="text-3xl font-extrabold text-orange-500">429K</span>
+</div>
+</div>
+</div>
+<p class="text-center text-[10px] text-gray-500 mt-2">*So với vật liệu thông thường cùng loại</p>
+<!-- END: Bottom Bar -->
+</div>
+<!-- END: Main Container -->
+</body></html>
